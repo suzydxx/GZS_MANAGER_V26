@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>GZS Manager - Login</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="bg-login">
+
+  <main class="center">
+    <div class="card login-card" id="loginCard">
+
+      <!-- Identidade -->
+      <div class="login-header">
+        <h1 class="logo">GZS Manager</h1>
+        <span class="tagline">Gelo Zona Sul</span>
+      </div>
+
+      <p class="muted login-desc">
+        Sistema de Controle de Ponto e Financeiro
+      </p>
+
+      <!-- Campos -->
+      <div class="grid login-grid">
+        <label class="label">Usuário</label>
+        <input
+          id="user"
+          placeholder="Digite o usuário"
+          class="input"
+          value="gelozonasul"
+        />
+
+        <label class="label">Senha</label>
+        <input
+          id="pass"
+          placeholder="Digite a senha"
+          type="password"
+          class="input"
+        />
+      </div>
+
+      <!-- Ações -->
+      <div class="actions">
+        <button id="btnLogin" class="btn btn-primary">
+          Entrar no sistema
+        </button>
+      </div>
+
+      <!-- Rodapé -->
+      <footer class="login-footer">
+        <span class="small creditos">
+          © 2025 • Desenvolvido por Suzydxx
+        </span>
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

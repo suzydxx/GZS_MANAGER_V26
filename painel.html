@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Painel - GZS Manager</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body class="bg-app">
+
+  <!-- TOPO -->
+  <header class="topbar">
+    <div class="header-texts">
+      <div class="h1">Controle de Ponto e Financeiro</div>
+      <div class="h2" id="empresaSub">Gelo Zona Sul • Operação Interna</div>
+    </div>
+  </header>
+
+  <!-- APP -->
+  <main class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- Identidade -->
+      <div class="sidebar-header">
+        <strong id="empresaTitle" class="empresa">
+          GZS Manager
+        </strong>
+        <span class="empresa-sub">
+          Sistema de Controle Operacional
+        </span>
+      </div>
+
+      <!-- Funcionários -->
+      <section class="sidebar-section">
+        <h4 class="section-title">Funcionários</h4>
+        <div id="empList" class="emp-list"></div>
+      </section>
+
+      <!-- Controles -->
+      <section class="sidebar-section actions">
+        <button id="btnAddEmp" class="btn btn-primary">
+          + Novo Funcionário
+        </button>
+
+        <button
+          id="btnSettings"
+          class="btn secondary"
+          onclick="location.href='configuracoes.html'">
+          Configurações
+        </button>
+      </section>
+
+      <!-- Rodapé -->
+      <footer class="sidebar-footer creditos">
+        © 2025 • Desenvolvido por Suzydxx<br>
+        GZS Manager
+      </footer>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="main" id="mainArea">
+
+      <div class="card dashboard-card">
+        <h3>Visão Geral</h3>
+        <p class="muted">
+          Acompanhe rapidamente o status de funcionários, ponto e financeiro.
+        </p>
+
+        <div id="overview"></div>
+      </div>
+
+    </main>
+
+  </main>
+
+  <script src="script.js"></script>
+
+  <!-- EXPANSÃO SEGURA: leitura das configurações -->
+  <script>
+    (function(){
+      try {
+        const raw = localStorage.getItem("gzs_manager_v3");
+        if(!raw) return;
+
+        const store = JSON.parse(raw);
+        if(!store.config) return;
+
+        if(store.config.empresa){
+          const title = document.getElementById("empresaTitle");
+          const sub = document.getElementById("empresaSub");
+
+          if(title) title.innerText = store.config.empresa;
+          if(sub) sub.innerText = store.config.empresa + " • Operação Interna";
+        }
+      } catch(e){
+        // falha silenciosa para não quebrar o painel
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Configurações - GZS Manager</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="header-texts">
+      <div class="h1">Configurações</div>
+      <div class="h2" id="cfgSub">Gelo Zona Sul</div>
+    </div>
+  </header>
+
+  <main class="main" id="mainCfg">
+    <div class="card">
+      <h3>Configurações</h3>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+        <div><label>Nome da empresa</label><input id="cEmpresa" class="input" /></div>
+        <div><label>Email</label><input id="cEmail" class="input" /></div>
+        <div><label>Usuário Admin</label><input id="cUser" class="input" /></div>
+        <div><label>Senha Admin</label><input id="cPass" class="input" /></div>
+        <div><label>Valor venda por dia</label><input id="cSell" class="input" type="number" /></div>
+        <div><label>Alimentação por dia</label><input id="cFood" class="input" type="number" /></div>
+        <div><label>Penalidade por atraso (R$)</label><input id="cLate" class="input" type="number" /></div>
+        <div><label>Limite de atraso (HH:MM)</label><input id="cLateLimit" class="input" /></div>
+      </div>
+
+      <div class="controls" style="margin-top:12px">
+        <button id="saveCfg" class="btn">Salvar</button>
+        <button id="exportCfg" class="btn secondary">Exportar Backup</button>
+        <button id="restoreDefault" class="btn secondary">Restaurar Padrões</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+
+  <!-- SCRIPT ISOLADO DE CONFIGURAÇÕES (SEM INTERFERIR NO SISTEMA) -->
+  <script>
+    (function(){
+      const LS_KEY = 'gzs_manager_v3';
+
+      function loadStore(){
+        try{
+          const raw = localStorage.getItem(LS_KEY);
+          if(raw) return JSON.parse(raw);
+        }catch{}
+        return {};
+      }
+
+      function saveStore(s){
+        localStorage.setItem(LS_KEY, JSON.stringify(s));
+      }
+
+      const store = loadStore();
+      if(!store.config) return;
+
+      // carregar valores ao abrir
+      document.getElementById("cEmpresa").value   = store.config.empresa || "";
+      document.getElementById("cUser").value      = store.config.admin?.user || "";
+      document.getElementById("cPass").value      = store.config.admin?.pass || "";
+      document.getElementById("cSell").value      = store.config.settings?.weeklySalary || "";
+      document.getElementById("cFood").value      = store.config.settings?.mealValue || "";
+      document.getElementById("cLate").value      = store.config.settings?.latePenalty || "";
+      document.getElementById("cLateLimit").value = store.config.settings?.lateLimit || "";
+
+      // salvar configurações
+      document.getElementById("saveCfg").onclick = () => {
+        store.config.empresa = document.getElementById("cEmpresa").value;
+        store.config.admin.user = document.getElementById("cUser").value;
+        store.config.admin.pass = document.getElementById("cPass").value;
+
+        store.config.settings.weeklySalary = Number(document.getElementById("cSell").value || 0);
+        store.config.settings.mealValue    = Number(document.getElementById("cFood").value || 0);
+        store.config.settings.latePenalty  = Number(document.getElementById("cLate").value || 0);
+        store.config.settings.lateLimit    = document.getElementById("cLateLimit").value;
+
+        saveStore(store);
+        alert("Configurações salvas com sucesso");
+      };
+    })();
+  </script>
+
+</body>
+</html>

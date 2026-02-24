@@ -1,0 +1,16 @@
+{
+  "empresa": "GZS Manager - Sistema de Controle e Gestão",
+  "email": "vivianelagendick@hotmail.com",
+  "admin": {
+    "user": "gelozonasul",
+    "pass": "1234",
+    "name": "Suzy"
+  },
+  "settings": {
+    "lateLimit": "08:21",
+    "latePenalty": 10,
+    "weeklySalary": 350,
+    "foodPerDay": 20,
+    "sellDayValue": 60
+  }
+}

@@ -1,0 +1,321 @@
+/* =====================================================
+   RESET & BASE
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+:root {
+  --azul-escuro: #0f172a;
+  --azul-medio: #1e40af;
+  --azul-claro: #3b82f6;
+  --azul-suave: #e0edff;
+
+  --cinza-escuro: #334155;
+  --cinza-medio: #64748b;
+  --cinza-claro: #e5e7eb;
+
+  --branco: #ffffff;
+}
+
+/* =====================================================
+   BODY
+===================================================== */
+body {
+  min-height: 100vh;
+  background: #f1f5f9;
+  color: var(--cinza-escuro);
+}
+
+/* =====================================================
+   BACKGROUND LOGIN
+===================================================== */
+.bg-login {
+  background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+}
+
+/* =====================================================
+   CENTRALIZAÇÃO
+===================================================== */
+.center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* =====================================================
+   TOPBAR (PAINEL / FUNCIONÁRIO)
+===================================================== */
+.topbar {
+  background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+  padding: 26px 32px;
+  color: var(--branco);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
+}
+
+.header-texts {
+  text-align: center;
+}
+
+.header-texts .h1 {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.header-texts .h2 {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* =====================================================
+   LAYOUT PRINCIPAL
+===================================================== */
+.main {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   VISÃO GERAL - PAINEL
+===================================================== */
+.dashboard-card {
+  text-align: center;
+  padding: 34px 26px;
+}
+
+.dashboard-card h3 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.dashboard-card .muted {
+  font-size: 14px;
+  color: var(--cinza-medio);
+  margin-bottom: 22px;
+}
+
+.dashboard-card .grid {
+  justify-items: center;
+}
+
+.dashboard-card .card {
+  width: 100%;
+  max-width: 260px;
+  padding: 26px;
+}
+
+.dashboard-card strong {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--azul-medio);
+}
+
+/* =====================================================
+   SIDEBAR (mantido, mas mais limpa)
+===================================================== */
+.sidebar {
+  background: var(--branco);
+  border-right: 1px solid var(--cinza-claro);
+}
+
+.sidebar-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--cinza-claro);
+}
+
+.empresa {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.empresa-sub {
+  font-size: 12px;
+  color: var(--cinza-medio);
+}
+
+.sidebar-section {
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--cinza-medio);
+  margin-bottom: 12px;
+}
+
+/* =====================================================
+   LISTA DE FUNCIONÁRIOS
+===================================================== */
+.emp-list .card {
+  padding: 16px;
+}
+
+.emp-list .card strong {
+  font-size: 15px;
+}
+
+.emp-list .small {
+  margin-top: 4px;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+.card {
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
+}
+
+.card + .card {
+  margin-top: 18px;
+}
+
+/* =====================================================
+   GRID
+===================================================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* =====================================================
+   TEXTOS
+===================================================== */
+.small {
+  font-size: 13px;
+  color: var(--cinza-medio);
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 18px 0 10px;
+}
+
+/* =====================================================
+   INPUTS & SELECT
+===================================================== */
+.input,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--cinza-claro);
+  background: #f8fafc;
+  font-size: 14px;
+}
+
+.input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--azul-claro);
+  background: var(--branco);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+.btn {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--azul-claro), var(--azul-medio));
+  color: var(--branco);
+}
+
+.btn.danger {
+  background: #dc2626;
+  color: var(--branco);
+}
+
+/* =====================================================
+   AÇÕES
+===================================================== */
+.actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* =====================================================
+   TABELAS
+===================================================== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+}
+
+.table th {
+  text-align: left;
+  font-size: 13px;
+  color: var(--cinza-medio);
+  padding: 10px;
+  border-bottom: 1px solid var(--cinza-claro);
+}
+
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* =====================================================
+   RESUMO FINANCEIRO
+===================================================== */
+.resumo-financeiro {
+  margin-top: 18px;
+  background: var(--azul-suave);
+  border-left: 4px solid var(--azul-claro);
+}
+
+/* =====================================================
+   LOGIN (inalterado)
+===================================================== */
+.login-card {
+  max-width: 420px;
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+@media (max-width: 600px) {
+  .main {
+    padding: 18px;
+  }
+
+  .topbar {
+    padding: 20px;
+  }
+}
